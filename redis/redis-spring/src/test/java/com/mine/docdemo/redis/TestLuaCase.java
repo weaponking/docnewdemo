@@ -11,8 +11,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import javax.annotation.Resource;
 import java.util.Arrays;
 
 /**
@@ -39,12 +37,18 @@ public class TestLuaCase {
 
     private static final String LOCK_VALUE = "LOCK_VALUE";
 
+    private static final String NEW_LOCK_VALUE = "NEW_LOCK_VALUE";
+
     private static final String TIME_OUT = "30";
 
     @Test
     public void test1() {
-        String result = redisTemplate.execute(lockLuaScript, Arrays.asList(LOCK_KEY),LOCK_VALUE, TIME_OUT);
-        Assert.assertEquals(result, LOCK_VALUE);
+        String result = redisTemplate.execute(lockLuaScript, Arrays.asList(LOCK_KEY), LOCK_VALUE, TIME_OUT);
+        Assert.assertEquals(LOCK_VALUE, result);
+        boolean result1 = redisTemplate.execute(unlockLuaScript, Arrays.asList(LOCK_KEY), LOCK_VALUE);
+        Assert.assertEquals(Boolean.TRUE, result1);
+        result = redisTemplate.execute(lockLuaScript, Arrays.asList(LOCK_KEY), NEW_LOCK_VALUE, TIME_OUT);
+        Assert.assertEquals(NEW_LOCK_VALUE, result);
     }
 
     @Test
