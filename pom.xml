@@ -16,6 +16,11 @@
         <module>Base</module>
         <module>zookeeper</module>
         <module>hbase</module>
+        <module>boot</module>
+        <module>test</module>
+        <module>sharding</module>
+        <module>elk</module>
+        <module>pattern</module>
     </modules>
 
     <name>DocDemo</name>
@@ -37,8 +42,10 @@
         <cglib.version>3.1</cglib.version>
         <lang3.version>3.6</lang3.version>
         <collections.version>4.4</collections.version>
-        <spring.boot.version>2.1.1.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.14.RELEASE</spring.boot.version>
         <fastjson.version>1.2.25</fastjson.version>
+        <commons-io.version>2.6</commons-io.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
     </properties>
 
     <dependencyManagement>
@@ -127,6 +134,17 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

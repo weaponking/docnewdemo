@@ -25,8 +25,12 @@ public class App implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<User> userList = userMapper.selectAllUser();
-        log.info(userList.toString());
+        int index = 0;
+        do {
+            List<User> userList = userMapper.selectAllUser();
+            log.info(userList.toString());
+            index++;
+        }while (index <100);
     }
 }
 /**

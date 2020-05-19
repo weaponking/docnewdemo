@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ConsumerServiceImpl implements ConsumerService {
 
-    @Reference
+    @Reference(url="dubbo://172.17.0.1:20880")
     ProviderService providerService;
 
     @Override
