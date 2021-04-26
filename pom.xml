@@ -44,7 +44,7 @@
         <collections.version>4.4</collections.version>
         <spring.boot.version>2.1.14.RELEASE</spring.boot.version>
         <fastjson.version>1.2.25</fastjson.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
     </properties>
 
